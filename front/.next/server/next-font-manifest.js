@@ -1,0 +1,1 @@
+self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/home/andrea/Documents/Henry/Modulo4/PM4FE-AnBLarsen/front/src/app/layout\":[\"static/media/c4250770ab8708b6-s.p.woff2\",\"static/media/9cf9c6e84ed13b5e-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"

@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+
+body {
+    font-family: var(--font-source-sans), sans-serif;
+}
+  
+h1, h2, h3, h4, .nav{
+    font-family: var(--font-noto-sans), sans-serif;
+}
+
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
