@@ -9,7 +9,7 @@ interface Props {
 }
   
 const Categories = async ({ params }: Props) => {
-  const { categoryorname } =  await params;
+  const { categoryorname } =  params;
 
   const products = await getProductByNameOrCategory(categoryorname);
 
