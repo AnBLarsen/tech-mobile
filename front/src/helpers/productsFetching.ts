@@ -10,24 +10,27 @@ export async function getProducts(): Promise<IProduct[]>{
         const response = await fetch(`${APIURL}/products`, {
             next: { revalidate: 360 },
         });
-        
+        if (!response.ok) {
+            throw new Error(`Failed to fetch products: ${response.status} ${response.statusText}`);
+        }
         const products: IProduct[] = await response.json();
         return products;
     } catch (error:any) {
-        throw new Error(error)
+        console.error("Error fetching products", error);
+        return []; 
     }
     
-
 }
 
 export async function getProductById(id: string ): Promise<IProduct>{
     try {
         const response = getProducts()
         const productFound = (await response).find((product) => product.id?.toString() === id)
-        if (!productFound) throw new Error("Product not found") 
+        if (!productFound) throw new Error(`Product with ID ${id} not found`) 
         return productFound
     } catch (error: any) {
-        throw new Error(error)
+        console.log(`Error fetching product by ID: ${id}`, error);
+        throw error; 
     }
 }
 

@@ -9,16 +9,16 @@ interface Props {
 }
   
 const Categories = async ({ params }: Props) => {
-  const { categoryorname } = await params;
+  const { categoryorname } =  await params;
 
-    const products = await getProductByNameOrCategory(categoryorname);
+  const products = await getProductByNameOrCategory(categoryorname);
 
-    const matchedCategory = categories.find((category) =>
-        category.slug.toLowerCase() === categoryorname.toLowerCase() ||
-        category.keywords?.some((kw) =>
-            kw.toLowerCase().includes(categoryorname.toLowerCase())
-        )
-    );
+  const matchedCategory = categories.find((category) =>
+      category.slug.toLowerCase() === categoryorname.toLowerCase() ||
+      category.keywords?.some((kw) =>
+          kw.toLowerCase().includes(categoryorname.toLowerCase())
+      )
+  );
 
   return (
     <>
