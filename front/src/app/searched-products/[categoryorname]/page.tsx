@@ -1,21 +1,17 @@
-
 import Categories from '@/components/categories/Categories';
 import Hero from '@/components/heros/HeroProducts';
-import React from 'react'
+import { getProductByNameOrCategory } from '@/helpers/productsFetching';
+import React from 'react';
 
-type PageProps = {
-  params: {
-    categoryorname: string;
-  };
-};
-
-export default async function CategoryOrNamePage({ params }: PageProps) {
+export default async function CategoryOrNamePage({ params }: { params: Promise<{ categoryorname: string }> }) {
+  const { categoryorname } = await params;
+  const products = await getProductByNameOrCategory(categoryorname);
 
   return (
     <>
       <Hero />
-      <Categories params={ params }/>
+      <Categories categoryorname={categoryorname} products={products} />
     </>
   );
 }
-  
+
